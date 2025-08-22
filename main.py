@@ -41,7 +41,8 @@ if __name__ == "__main__":
 
     train_path = 'Data/processed_data/ml_prepared/train_data.csv'
     test_path = 'Data/processed_data/ml_prepared/test_data.csv'
-    model_output_path = 'Model/random_forest_si_model.joblib'
+    model_output_path = 'Model/classification_model.joblib'
+
 
     load_and_process_all_pairs(INPUT_PAIRS, OUTPUT_PATH)
     label_and_save(OUTPUT_PATH, OUTPUT_LABELED)
@@ -50,7 +51,9 @@ if __name__ == "__main__":
 
 
 
-    TUNED_MODEL_PATH = 'Model/random_forest_si_model_tuned.joblib'
+
+
+    TUNED_MODEL_PATH = 'Model/classification_model.joblib'
 
     # Load datasets
     train_df = pd.read_csv(train_path)
@@ -71,7 +74,7 @@ if __name__ == "__main__":
     # Evaluate the loaded model
     evaluate_model(model, X_test, y_test)
 
-    # Optional: Perform hyperparameter tuning and save new model
+    #Perform hyperparameter tuning and save new model
     do_tuning = False  # Change to True to enable tuning
     if do_tuning:
         best_model = hyperparameter_tuning(X_train, y_train)

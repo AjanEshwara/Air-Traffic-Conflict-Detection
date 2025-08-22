@@ -4,8 +4,8 @@ import os
 def assign_si_label(df,
                     horiz_sep_col='horizontal_sep_NM',
                     vert_sep_col='vertical_sep_ft',
-                    horiz_threshold=10.0,   # nautical miles
-                    vert_threshold=1000.0): # feet
+                    horiz_threshold=20.0,   # nautical miles
+                    vert_threshold=1500.0): # feet
 
     # Verify required columns exist
     if horiz_sep_col not in df.columns or vert_sep_col not in df.columns:

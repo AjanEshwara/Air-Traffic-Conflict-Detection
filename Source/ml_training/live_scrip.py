@@ -9,19 +9,19 @@ from geographiclib.geodesic import Geodesic
 
 
 #---Configs-----
-USERNAME = "ajan eshwara"
-PASSWORD = "Eshwara@1995"
+USERNAME = "***"
+PASSWORD = "***"
 BBOX = (47.0, 56.0, 5.0, 15.0)  # min_lat, max_lat, min_lon, max_lon
-MODEL_PATH = "../../Model/random_forest_si_model.joblib"
+MODEL_PATH = "../../Model/classification_model.joblib"
 
 # --Load trained model---
 clf = joblib.load(MODEL_PATH)
 
 #------Get live ADS-B data from OpenSky-----
 def fetch_opensky_live(bbox):
-    url = "https://opensky-network.org/api/states/all"
+    url = "https://opensky-network.org/api/states/all?bbox=47,56,5,15"
     params = {"bbox": ",".join(map(str, BBOX))}
-    r = requests.get(url, auth=(USERNAME, PASSWORD), params=params)
+    r = requests.get(url, params=params)
     r.raise_for_status()
     data = r.json()
 
